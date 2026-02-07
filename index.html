@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Just For Kasak ❤️</title>
+
+    <!-- Mobile Friendly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+            padding: 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff2f68;
+            margin-bottom: 15px;
+            font-size: 26px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 12px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 8px;
+            transition: 0.3s;
+        }
+
+        #yes {
+            background-color: #ff2f68;
+            color: white;
+        }
+
+        #yes:hover {
+            background-color: #ff0048;
+            transform: scale(1.05);
+        }
+
+        #no {
+            background-color: #ccc;
+            color: black;
+            position: absolute;
+        }
+
+        .message {
+            font-size: 17px;
+            color: #ff2f68;
+            margin-top: 20px;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .tap {
+            font-size: 13px;
+            color: #777;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 🎵 Romantic Music -->
+<audio id="bgMusic" loop>
+    <source src="teremere.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card" onclick="playMusic()">
+    <h1>Kasak ❤️</h1>
+
+    <p>
+        Kasak, jab bhi main tumhare baare me sochta hoon,<br>
+        mera dil bina wajah muskurane lagta hai 💕<br><br>
+
+        Tum meri aadat ban chuki ho,<br>
+        meri har dua ka sabse khoobsurat hissa ✨<br><br>
+
+        <strong>
+        Kya tum meri zindagi me hamesha ke liye rehna chahogi? 💖 ?
+        </strong>
+    </p>
+
+    <button id="yes" onclick="yesClicked()">Yes 💕</button>
+    <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">No 😜</button>
+
+    <div class="message" id="message"></div>
+    <div class="tap">(Tap anywhere to play music 🎶)</div>
+</div>
+
+<script>
+    function moveNo() {
+        const noBtn = document.getElementById("no");
+        const card = document.querySelector(".card");
+
+        const maxX = card.offsetWidth - noBtn.offsetWidth;
+        const maxY = card.offsetHeight - noBtn.offsetHeight;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    function yesClicked() {
+        document.getElementById("message").style.display = "block";
+        document.getElementById("message").innerHTML =
+            "Kasak ❤️<br><br>" +
+            "Thank you mujhe choose karne ke liye 🥹💖<br>" +
+            "Aaj tumne sirf YES nahi kaha,<br>" +
+            "tumne meri poori duniya ko haan keh diya 💑✨<br><br>" +
+            "Main wada karta hoon,<br>" +
+            "har mod par tumhara haath thaam kar chalunga 💍";
+    }
+
+    function playMusic() {
+        const music = document.getElementById("bgMusic");
+        music.play();
+    }
+</script>
+
+</body>
+</html>
